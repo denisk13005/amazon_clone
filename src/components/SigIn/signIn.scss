@@ -1,0 +1,42 @@
+.signInContainer {
+  box-shadow: 0px 0px 5px lightgray;
+  width: 40%;
+  min-width: 300px;
+  margin: auto;
+  margin-top: 60px;
+}
+.signInForm {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  input {
+    margin-bottom: 10px;
+    height: 4vh;
+    border-radius: 3px;
+    border: 1px solid lightgray;
+    &:focus {
+      outline: 2px solid #e3b87e;
+      border: none;
+    }
+  }
+  label {
+    font-weight: 600;
+  }
+  .passwordLabel {
+    position: relative;
+    a {
+      position: absolute;
+      right: 0;
+    }
+  }
+}
+.loginTitle {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.submitBtn {
+  margin-top: 10px;
+  background: linear-gradient(#f7e6b0, #e8c353);
+  border: 1px solid #9d7b27;
+  border-radius: 3px;
+}

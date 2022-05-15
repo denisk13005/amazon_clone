@@ -1,12 +1,12 @@
-import './App.css';
-import Header from './components/Header/Header';
+import "./App.css"
+import Router from "./utils/Router/Router"
 
 function App() {
   return (
     <div className="App">
-      <Header/>
+      <Router />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
