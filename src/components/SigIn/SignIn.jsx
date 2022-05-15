@@ -2,15 +2,28 @@ import React, { useState, useEffect } from "react"
 import { NavLink } from "react-router-dom"
 import "./signIn.scss"
 
-const SignIn = () => {
+const SignIn = (props) => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [errorMessage, setErrorMessage] = useState("")
+  const [rememberMe, setRememberMe] = useState(false)
+  const user = {
+    email,
+    password,
+  }
+  console.log(user)
+
+  const rememberMeToggle = (e) => {
+    e.target.checked ? setRememberMe(true) : setRememberMe(false)
+  }
+  console.log(rememberMe)
   /**
    * prevent the refresh and launch getAuth function
    * @param {event} e
    */
   const loggIn = (e) => {
+    console.log("submit")
+    rememberMe && localStorage.setItem("testAmazon²", JSON.stringify(user))
     e.preventDefault()
     // getAuth(userName, password)
   }
@@ -37,13 +50,13 @@ const SignIn = () => {
   // useEffect(() => {
   //   return () => null
   // }, [adminLoggedIn])
-
+  console.log(email, password)
   return (
     <div className="signInContainer">
       <form className="signInForm" onSubmit={loggIn}>
         <p className="loginTitle">Login</p>
         <label className="emailLabel" htmlFor="userName">
-          Email or mobile phone number
+          Email
         </label>
         <input
           type="text"
@@ -67,6 +80,17 @@ const SignIn = () => {
         />
         <span className="errorMessage">{errorMessage}</span>
         <input className="submitBtn" type="submit" value="LogIn" />
+        <div className="rememberMe">
+          <input id="check" type="checkbox" onChange={rememberMeToggle} />
+          <label htmlFor="check">Keep me signed in.</label>
+        </div>
+        <p className="newOnAmazon">New to Amazon ?</p>
+        <div
+          className="createYourAccount"
+          onClick={() => props.setSignIn(false)}
+        >
+          Create your Amazon account
+        </div>
       </form>
     </div>
   )

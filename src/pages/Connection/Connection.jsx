@@ -9,7 +9,7 @@ const Connection = () => {
   return (
     <div className="connectionContainer">
       <img className="connectionLogo" src={blackLogo} alt="amazon logo" />
-      {signIn ? <SignIn /> : <SignUp />}
+      {signIn ? <SignIn setSignIn={setSignIn} /> : <SignUp />}
     </div>
   )
 }
