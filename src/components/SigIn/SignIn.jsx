@@ -26,10 +26,13 @@ const SignIn = (props) => {
   }
 
   useEffect(() => {
-    const local =
-      localStorage.userSignUp && JSON.parse(localStorage.getItem("userSignUp"))
-    setEmail(local.email)
-    setPassword(local.password)
+    if (localStorage.userSignUp) {
+      const local =
+        localStorage.userSignUp &&
+        JSON.parse(localStorage.getItem("userSignUp"))
+      setEmail(local.email)
+      setPassword(local.password)
+    } else return
   }, [])
 
   /**
