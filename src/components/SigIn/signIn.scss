@@ -1,9 +1,9 @@
 .signInContainer {
-  box-shadow: 0px 0px 5px lightgray;
-  width: 40%;
+  width: 20%;
   min-width: 300px;
   margin: auto;
-  margin-top: 60px;
+  box-shadow: 0px 0px 5px rgb(189, 189, 189);
+  margin-top: 50px;
 }
 .signInForm {
   display: flex;
@@ -67,7 +67,7 @@
   margin: 50px auto 20px;
   &::before {
     content: "";
-    width: 39%;
+    width: 25%;
     height: 1px;
     background-color: rgb(156, 156, 156);
     display: block;
@@ -78,7 +78,7 @@
   }
   &::after {
     content: "";
-    width: 39%;
+    width: 25%;
     height: 1px;
     background-color: rgb(156, 156, 156);
     display: block;

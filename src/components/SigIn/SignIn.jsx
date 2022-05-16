@@ -55,13 +55,13 @@ const SignIn = (props) => {
     <div className="signInContainer">
       <form className="signInForm" onSubmit={loggIn}>
         <p className="loginTitle">Login</p>
-        <label className="emailLabel" htmlFor="userName">
+        <label className="emailLabel" htmlFor="userMail">
           Email
         </label>
         <input
           type="text"
-          name="userName"
-          id="userName"
+          name="userMail"
+          id="userMail"
           value={email}
           onChange={(e) => setEmail(e.target.value.trim())}
           autoFocus
