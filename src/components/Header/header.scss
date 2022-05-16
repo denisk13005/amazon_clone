@@ -68,8 +68,9 @@
         border: 1px solid white;
         padding: 0px 4px 0px 4px;
       }
-      &:hover span {
-        margin-left: -1px;
+
+      &:hover .cartItems {
+        margin-right: -1px;
       }
       &--basket {
         display: flex;
@@ -82,7 +83,7 @@
         }
         .cartItems {
           position: absolute;
-          right: 58px;
+          right: 63px;
           bottom: 2vh;
           color: #ff9900;
           font-weight: 600;

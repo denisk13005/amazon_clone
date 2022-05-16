@@ -1,12 +1,18 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import "./header.scss"
 import logo from "../../assets/img/amazon_PNG1.png"
 import basket from "../../assets/img/basket.png"
 import search from "../../assets/img/search.svg"
 import { useNavigate } from "react-router-dom"
+import { useSelector } from "react-redux"
 const Header = () => {
-  const [user, setUser] = useState("Denis")
-  const [cartItems, setCartItem] = useState(6)
+  //redux state
+  const logged = useSelector((state) => state.user.adminLoggedIn)
+  const userLogged = useSelector((state) => state.user.informations[0])
+  userLogged && console.log(userLogged.name)
+  //local state
+  const [user, setUser] = useState("")
+  const [cartItems, setCartItem] = useState(1)
   const [connected, setConnected] = useState(false)
 
   const navigate = useNavigate()
@@ -14,6 +20,9 @@ const Header = () => {
   const loggIn = () => {
     navigate("/connection")
   }
+  useEffect(() => {
+    userLogged && setUser(userLogged.name)
+  }, [userLogged])
   return (
     <header className="header">
       <img className="logo" src={logo} alt="amazon logo" />
@@ -24,7 +33,7 @@ const Header = () => {
         </div>
       </div>
       <div className="rightOptions">
-        {connected ? (
+        {logged ? (
           <div className="rightOptions__option rightOptions__option--user">
             Bonjour {user}
             <br />

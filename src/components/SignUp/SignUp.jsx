@@ -1,18 +1,31 @@
 import React, { useState } from "react"
-import { NavLink } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { createUserAuth, createUserDb } from "../../firebase/apiDbFirebase"
 import "./signUp.scss"
+import { sign } from "../../utils/Redux-toolkit/user"
 
 const SignUp = (props) => {
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [confirmPassword, setConfirmPassword] = useState("second")
+  //local state
+  const [name, setName] = useState("test")
+  const [email, setEmail] = useState("testx@test.com")
+  const [password, setPassword] = useState("password")
+  const [confirmPassword, setConfirmPassword] = useState("password")
   const [errorMessage, setErrorMessage] = useState("  ")
+
+  // const resetField= () => {
+  //   setName
+  // }
+
   const signUp = (e) => {
     e.preventDefault()
     if (password === confirmPassword) {
       console.log("signup")
+      localStorage.setItem("userSignUp", JSON.stringify({ email, password }))
+      createUserAuth(email, password)
+      createUserDb({ name, email })
+
       setErrorMessage("")
+      props.setSignIn(true)
     } else {
       setErrorMessage("Les mots de passe doivent être identiques")
     }
@@ -54,7 +67,7 @@ const SignUp = (props) => {
           type="password"
           name="password"
           id="password"
-          value={password}
+          value={password.trim()}
           onChange={(e) => setPassword(e.target.value.trim())}
           minLength={8}
         />
@@ -69,11 +82,11 @@ const SignUp = (props) => {
           type="password"
           name="confirmPassword"
           id="confirmPassword"
-          value={confirmPassword}
+          value={confirmPassword.trim()}
           onChange={(e) => setConfirmPassword(e.target.value.trim())}
         />
         <span className="errorMessage">{errorMessage}</span>
-        <input className="submitBtn" type="submit" value="SignUp" />
+        <input className="submitBtn" type="submit" value="Sign-Up" />
 
         <p className="line"></p>
         <div className="haveAccount">
