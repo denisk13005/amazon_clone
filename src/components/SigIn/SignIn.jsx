@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { NavLink } from "react-router-dom"
-import { getUsers, signInAuth } from "../../firebase/apiDbFirebase"
+import { NavLink, useNavigate } from "react-router-dom"
+import { signInAuth } from "../../firebase/apiDbFirebase"
 import { fetchDbUser, logIn } from "../../utils/Redux-toolkit/user"
 import "./signIn.scss"
 
 const SignIn = (props) => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   //local state
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState(" ")
@@ -53,13 +54,15 @@ const SignIn = (props) => {
       localStorage.setItem("userRememberMe", JSON.stringify(user))
     } else if (!rememberMe && auth.email === email) {
       localStorage.removeItem("userRememberMe")
+    } else {
+      setErrorMessage(auth.split("/")[1])
     }
-    console.log(auth.email)
-    auth && dispatch(fetchDbUser(email))
-    auth && dispatch(logIn())
+    auth.email && dispatch(fetchDbUser(email))
+    auth.email && dispatch(logIn())
     localStorage.removeItem("userPrefilledField")
+    auth.email && navigate("/home")
+    console.log(auth.email)
   }
-
   /**
    * Ckeck the username and password in the firebase signInAuth api,
    * stock the response token in local storage and dispatch the redux logIn action  *
