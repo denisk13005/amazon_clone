@@ -7,7 +7,6 @@ import "./signIn.scss"
 
 const SignIn = (props) => {
   const dispatch = useDispatch()
-  const backSignup = useSelector((state) => state.user.backSignup)
   //local state
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState(" ")
@@ -26,12 +25,18 @@ const SignIn = (props) => {
   }
 
   useEffect(() => {
-    if (localStorage.userSignUp) {
-      const local =
-        localStorage.userSignUp &&
-        JSON.parse(localStorage.getItem("userSignUp"))
-      setEmail(local.email)
-      setPassword(local.password)
+    if (localStorage.userPrefilledField) {
+      const backFromSignUp =
+        localStorage.userPrefilledField &&
+        JSON.parse(localStorage.getItem("userPrefilledField"))
+      setEmail(backFromSignUp.email)
+      setPassword(backFromSignUp.password)
+    } else if (localStorage.userRememberMe) {
+      const rememberMeValue =
+        localStorage.userRememberMe &&
+        JSON.parse(localStorage.getItem("userRememberMe"))
+      setEmail(rememberMeValue.email)
+      setPassword(rememberMeValue.password)
     } else return
   }, [])
 
@@ -40,13 +45,19 @@ const SignIn = (props) => {
    * @param {event} e
    */
   const loggIn = async (e) => {
-    console.log(email)
-    rememberMe && localStorage.setItem("testAmazon²", JSON.stringify(user))
     e.preventDefault()
+    console.log(email)
     const auth = await signInAuth(email, password)
+    //remember me si
+    if (rememberMe && auth.email === email) {
+      localStorage.setItem("userRememberMe", JSON.stringify(user))
+    } else if (!rememberMe && auth.email === email) {
+      localStorage.removeItem("userRememberMe")
+    }
+    console.log(auth.email)
     auth && dispatch(fetchDbUser(email))
     auth && dispatch(logIn())
-    localStorage.removeItem("userSignUp")
+    localStorage.removeItem("userPrefilledField")
   }
 
   /**

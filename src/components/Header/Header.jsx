@@ -6,16 +6,17 @@ import search from "../../assets/img/search.svg"
 import { useNavigate } from "react-router-dom"
 import { useSelector } from "react-redux"
 const Header = () => {
+  const navigate = useNavigate()
+
   //redux state
-  const logged = useSelector((state) => state.user.adminLoggedIn)
+  const logged = useSelector((state) => state.user.userLoggedIn)
   const userLogged = useSelector((state) => state.user.informations[0])
   userLogged && console.log(userLogged.name)
+
   //local state
   const [user, setUser] = useState("")
   const [cartItems, setCartItem] = useState(1)
   const [connected, setConnected] = useState(false)
-
-  const navigate = useNavigate()
 
   const loggIn = () => {
     navigate("/connection")
@@ -32,7 +33,7 @@ const Header = () => {
           <img src={search} alt="search icone" className="magnifyingGlass" />
         </div>
       </div>
-      <div className="rightOptions">
+      <nav className="rightOptions">
         {logged ? (
           <div className="rightOptions__option rightOptions__option--user">
             Bonjour {user}
@@ -57,7 +58,7 @@ const Header = () => {
 
           <span className="cartItems">{cartItems}</span>
         </div>
-      </div>
+      </nav>
     </header>
   )
 }

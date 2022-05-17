@@ -26,15 +26,15 @@ const userSlice = createSlice({
   name: "user",
   initialState: {
     informations: [],
-    adminLoggedIn: false,
+    userLoggedIn: false,
   },
   reducers: {
     logIn: (state) => {
-      state.adminLoggedIn = true
+      state.userLoggedIn = true
       return state
     },
     logOut: (state) => {
-      state.adminLoggedIn = false
+      state.userLoggedIn = false
       return state
     },
   },
@@ -46,5 +46,5 @@ const userSlice = createSlice({
   },
 })
 
-export const { logIn, logOut, sign } = userSlice.actions
+export const { logIn, logOut } = userSlice.actions
 export default userSlice.reducer

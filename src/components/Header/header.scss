@@ -6,6 +6,9 @@
   padding: 18px 0px 5px 0px;
   display: flex;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   .logo {
     width: 100px;
     color: white;

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import { createUserAuth, createUserDb } from "../../firebase/apiDbFirebase"
 import "./signUp.scss"
@@ -20,7 +20,10 @@ const SignUp = (props) => {
     e.preventDefault()
     if (password === confirmPassword) {
       console.log("signup")
-      localStorage.setItem("userSignUp", JSON.stringify({ email, password }))
+      localStorage.setItem(
+        "userPrefilledField",
+        JSON.stringify({ email, password })
+      )
       createUserAuth(email, password)
       createUserDb({ name, email })
 
@@ -30,6 +33,9 @@ const SignUp = (props) => {
       setErrorMessage("Les mots de passe doivent être identiques")
     }
   }
+  useEffect(() => {
+    localStorage.removeItem("userRememberMe")
+  }, [])
   return (
     <div className="signUpContainer">
       <form className="signInForm" onSubmit={signUp}>
