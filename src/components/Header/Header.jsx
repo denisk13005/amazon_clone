@@ -26,15 +26,16 @@ const Header = () => {
     userLogged && setUser(userLogged.name)
   }, [userLogged])
 
-  const toggleCompteModal = () => {
-    compteModalClassName === "none"
-      ? setCompteModalClassName("visible")
-      : setCompteModalClassName("none")
+  const openModal = () => {
+    setCompteModalClassName("visible")
+  }
+  const closeModal = () => {
+    setCompteModalClassName("none")
   }
   return (
     <header className="header">
       <img className="logo" src={logo} alt="amazon logo" />
-      <div className="search">
+      <div className="search" onMouseEnter={closeModal}>
         <input type="search" />
         <div className="searchImgContainer">
           <img src={search} alt="search icone" className="magnifyingGlass" />
@@ -45,7 +46,7 @@ const Header = () => {
           <>
             <div
               className="rightOptions__option rightOptions__option--user"
-              onMouseEnter={() => toggleCompteModal()}
+              onMouseEnter={openModal}
             >
               Bonjour {user}
               <br />
@@ -53,7 +54,7 @@ const Header = () => {
             </div>
             <CompteModal
               className={compteModalClassName}
-              toggleCompteModal={toggleCompteModal}
+              closeModal={closeModal}
             />
           </>
         ) : (
@@ -65,7 +66,10 @@ const Header = () => {
           </>
         )}
 
-        <div className="rightOptions__option rightOptions__option--return">
+        <div
+          className="rightOptions__option rightOptions__option--return"
+          onMouseEnter={closeModal}
+        >
           Retours
           <br />
           <strong>et Commandes</strong>
