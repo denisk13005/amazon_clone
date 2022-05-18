@@ -56,6 +56,8 @@
     padding-right: 15px;
     height: 6.5vh;
     min-width: 350px;
+    position: relative;
+
     &__option {
       height: 80%;
       width: 100%;
@@ -74,6 +76,9 @@
 
       &:hover .cartItems {
         margin-right: -1px;
+      }
+      &--user {
+        position: relative;
       }
       &--basket {
         display: flex;

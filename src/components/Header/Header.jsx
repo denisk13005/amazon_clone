@@ -5,18 +5,19 @@ import basket from "../../assets/img/basket.png"
 import search from "../../assets/img/search.svg"
 import { useNavigate } from "react-router-dom"
 import { useSelector } from "react-redux"
+import CompteModal from "../CompteModal/CompteModal"
 const Header = () => {
   const navigate = useNavigate()
 
   //redux state
   const logged = useSelector((state) => state.user.userLoggedIn)
   const userLogged = useSelector((state) => state.user.informations[0])
-  userLogged && console.log(userLogged.name)
 
   //local state
   const [user, setUser] = useState("")
   const [cartItems, setCartItem] = useState(1)
   const [connected, setConnected] = useState(false)
+  const [compteModalClassName, setCompteModalClassName] = useState("none")
 
   const loggIn = () => {
     navigate("/connection")
@@ -24,6 +25,12 @@ const Header = () => {
   useEffect(() => {
     userLogged && setUser(userLogged.name)
   }, [userLogged])
+
+  const toggleCompteModal = () => {
+    compteModalClassName === "none"
+      ? setCompteModalClassName("visible")
+      : setCompteModalClassName("none")
+  }
   return (
     <header className="header">
       <img className="logo" src={logo} alt="amazon logo" />
@@ -35,16 +42,27 @@ const Header = () => {
       </div>
       <nav className="rightOptions">
         {logged ? (
-          <div className="rightOptions__option rightOptions__option--user">
-            Bonjour {user}
-            <br />
-            <strong>Compte et listes</strong>
-          </div>
+          <>
+            <div
+              className="rightOptions__option rightOptions__option--user"
+              onMouseEnter={() => toggleCompteModal()}
+            >
+              Bonjour {user}
+              <br />
+              <strong>Compte et listes</strong>
+            </div>
+            <CompteModal
+              className={compteModalClassName}
+              toggleCompteModal={toggleCompteModal}
+            />
+          </>
         ) : (
-          <div className="rightOptions__option " onClick={loggIn}>
-            Hello Guest <br />
-            <strong>Please LoggIn</strong>
-          </div>
+          <>
+            <div className="rightOptions__option " onClick={loggIn}>
+              Hello Guest <br />
+              <strong>Please LoggIn</strong>
+            </div>
+          </>
         )}
 
         <div className="rightOptions__option rightOptions__option--return">

@@ -50,18 +50,16 @@ const SignIn = (props) => {
     console.log(email)
     const auth = await signInAuth(email, password)
     //remember me si
-    if (rememberMe && auth.email === email) {
-      localStorage.setItem("userRememberMe", JSON.stringify(user))
-    } else if (!rememberMe && auth.email === email) {
-      localStorage.removeItem("userRememberMe")
+    if (auth.email === email) {
+      rememberMe && localStorage.setItem("userRememberMe", JSON.stringify(user))
+      dispatch(fetchDbUser(email))
+      console.log(test)
+      dispatch(logIn())
+      localStorage.removeItem("userPrefilledField")
+      navigate("/home")
     } else {
       setErrorMessage(auth.split("/")[1])
     }
-    auth.email && dispatch(fetchDbUser(email))
-    auth.email && dispatch(logIn())
-    localStorage.removeItem("userPrefilledField")
-    auth.email && navigate("/home")
-    console.log(auth.email)
   }
   /**
    * Ckeck the username and password in the firebase signInAuth api,

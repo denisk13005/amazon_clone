@@ -1,4 +1,15 @@
 .homeMainContainer {
   width: 100%;
+  max-width: 1500px;
   height: 100vh;
+  margin: auto;
+}
+.slideContainer {
+  width: 100%;
+  height: 80vh;
+  background-color: antiquewhite;
+}
+.imgSlide {
+  width: 100%;
+  // mask-image: linear-gradient(rgba(255, 255, 255, 1), transparent);
 }
