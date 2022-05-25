@@ -53,7 +53,6 @@ const SignIn = (props) => {
     if (auth.email === email) {
       rememberMe && localStorage.setItem("userRememberMe", JSON.stringify(user))
       dispatch(fetchDbUser(email))
-      console.log(test)
       dispatch(logIn())
       localStorage.removeItem("userPrefilledField")
       navigate("/home")
@@ -61,28 +60,7 @@ const SignIn = (props) => {
       setErrorMessage(auth.split("/")[1])
     }
   }
-  /**
-   * Ckeck the username and password in the firebase signInAuth api,
-   * stock the response token in local storage and dispatch the redux logIn action  *
-   * @param {string} userName
-   * @param {string} password
-   * @return accessToken connection if request ok or error if not
-   */
-  // const getAuth = async (userName, password) => {
-  //   const auth = await signInAuth(userName, password)
-  //   if (auth.accessToken) {
-  //     localStorage.setItem("adminAccessToken", auth.accessToken)
-  //     dispatch(logIn())
-  //     setErrorMessage("")
-  //   } else {
-  //     setErrorMessage(auth.split("/")[1])
-  //   }
-  // }
 
-  //unmount when loggedIn
-  // useEffect(() => {
-  //   return () => null
-  // }, [adminLoggedIn])
   return (
     <div className="signInContainer">
       <form className="signInForm" onSubmit={loggIn}>
