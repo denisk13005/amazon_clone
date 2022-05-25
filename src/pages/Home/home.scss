@@ -7,7 +7,18 @@
 
 .imgSlide {
   width: 100%;
-  z-index: -1;
-  margin-bottom: -150px;
+  margin-bottom: -200px;
+  z-index: -10;
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+.productsContainer {
+  width: 100%;
+  height: 80%;
+  z-index: 1;
+  position: relative;
+  .productRow {
+    display: flex;
+    justify-content: space-around;
+  }
 }
