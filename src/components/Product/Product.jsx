@@ -9,9 +9,7 @@ const Product = ({ description, price, smallPrice, stars, img, id }) => {
   const addBasket = () => {
     dispatch(addProduct(product))
   }
-  const removeProd = () => {
-    dispatch(removeProduct(product.id))
-  }
+
   return (
     <div className="product">
       <p className="product__description">{description}</p>
@@ -31,7 +29,6 @@ const Product = ({ description, price, smallPrice, stars, img, id }) => {
         </div>
         {}
         <button onClick={addBasket}>Ajouter au panier</button>
-        <button onClick={removeProd}>Supprimer du panier</button>
       </div>
     </div>
   )

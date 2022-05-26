@@ -4,6 +4,7 @@ const productsSlice = createSlice({
   name: "products",
   initialState: {
     products: [],
+    basketItems: 0,
     loading: false,
     error: null,
   },
@@ -11,12 +12,14 @@ const productsSlice = createSlice({
     addProduct: (state, action) => {
       console.log(action.payload)
       state.products = [...state.products, action.payload]
+      state.basketItems++
     },
     removeProduct: (state, action) => {
       //on retourne un tableau qui comprend tous les autres éléments sauf celui avec l'id cliqué
       state.products = state.products.filter(
         (product) => product.id !== action.payload
       )
+      state.basketItems--
     },
   },
 })

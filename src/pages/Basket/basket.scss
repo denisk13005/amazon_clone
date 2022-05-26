@@ -1,0 +1,15 @@
+.basketMain {
+  display: flex;
+  justify-content: space-around;
+  height: 100vh;
+  .basket {
+    &__left {
+      width: 70%;
+      background-color: white;
+    }
+    &__right {
+      flex-grow: 0.7;
+      background-color: aqua;
+    }
+  }
+}
