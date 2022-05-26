@@ -26,13 +26,16 @@ const SignIn = (props) => {
   }
 
   useEffect(() => {
+    //si on revient de signUp on prérempli les champs avec l'utilisateur créée
     if (localStorage.userPrefilledField) {
       const backFromSignUp =
         localStorage.userPrefilledField &&
         JSON.parse(localStorage.getItem("userPrefilledField"))
       setEmail(backFromSignUp.email)
       setPassword(backFromSignUp.password)
-    } else if (localStorage.userRememberMe) {
+    }
+    //si on est sur login et que remember me a été coché on prérempli les champs
+    else if (localStorage.userRememberMe) {
       const rememberMeValue =
         localStorage.userRememberMe &&
         JSON.parse(localStorage.getItem("userRememberMe"))
@@ -70,6 +73,7 @@ const SignIn = (props) => {
         </label>
         <input
           type="text"
+          z
           name="userMail"
           id="userMail"
           value={email}

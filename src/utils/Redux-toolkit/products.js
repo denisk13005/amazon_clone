@@ -12,8 +12,14 @@ const productsSlice = createSlice({
       console.log(action.payload)
       state.products = [...state.products, action.payload]
     },
+    removeProduct: (state, action) => {
+      //on retourne un tableau qui comprend tous les autres éléments sauf celui avec l'id cliqué
+      state.products = state.products.filter(
+        (product) => product.id !== action.payload
+      )
+    },
   },
 })
 
-export const { addProduct } = productsSlice.actions
+export const { addProduct, removeProduct } = productsSlice.actions
 export default productsSlice.reducer

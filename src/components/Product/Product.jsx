@@ -1,6 +1,6 @@
 import React from "react"
 import { useDispatch } from "react-redux"
-import { addProduct } from "../../utils/Redux-toolkit/products"
+import { addProduct, removeProduct } from "../../utils/Redux-toolkit/products"
 import "./product.scss"
 
 const Product = ({ description, price, smallPrice, stars, img, id }) => {
@@ -8,6 +8,9 @@ const Product = ({ description, price, smallPrice, stars, img, id }) => {
   const dispatch = useDispatch()
   const addBasket = () => {
     dispatch(addProduct(product))
+  }
+  const removeProd = () => {
+    dispatch(removeProduct(product.id))
   }
   return (
     <div className="product">
@@ -28,6 +31,7 @@ const Product = ({ description, price, smallPrice, stars, img, id }) => {
         </div>
 
         <button onClick={addBasket}>Ajouter au panier</button>
+        <button onClick={removeProd}>Supprimer du panier</button>
       </div>
     </div>
   )
