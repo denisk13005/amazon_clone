@@ -1,6 +1,5 @@
 import React from "react"
 import "./home.scss"
-import img from "../../assets/img/amazonSlide/61pmgcY2VIL._SX3000_.jpg"
 import { useSelector } from "react-redux"
 import PleaseLogin from "../../components/PleaseLoggin/PleaseLogin"
 import Product from "../../components/Product/Product"
