@@ -4,6 +4,7 @@ import img from "../../assets/img/blackLogo.png"
 
 const Product = (props) => {
   console.log(props.width)
+
   return (
     <div className="product" style={{ width: props.width }}>
       <p className="product__description">
@@ -11,7 +12,10 @@ const Product = (props) => {
         officiis. Consequatur provident dignissimos aut ex ea nam assumenda
         delectus.
       </p>
-      <p className="product__price">10.36€</p>
+      <p className="product__price">
+        <strong>10.</strong>
+        <small>36€</small>
+      </p>
       <div className="product__stars">⭐⭐⭐⭐⭐</div>
       <div className="imgAndButton">
         <div className="imgContainer">

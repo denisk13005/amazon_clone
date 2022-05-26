@@ -4,6 +4,10 @@
   height: 422px;
   display: flex;
   flex-direction: column;
+  border: 1px solid red;
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+  margin-bottom: 0.7em;
   &__description {
     font-weight: 600;
     font-size: 16px;
@@ -11,6 +15,12 @@
   }
   &__price {
     margin-bottom: 5px;
+    position: relative;
+    small {
+      margin-bottom: 5px;
+      position: absolute;
+      font-size: 10px;
+    }
   }
   .imgAndButton {
     width: 100%;
@@ -28,6 +38,7 @@
     }
     img {
       width: 100%;
+      object-fit: contain;
     }
     button {
       margin: 20px auto;

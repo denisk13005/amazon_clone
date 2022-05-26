@@ -20,9 +20,17 @@ const Home = () => {
           </section>
           <section className="productsContainer">
             <div className="productRow">
-              <Product width={"28%"} />
-              <Product width={"28%"} />
-              <Product width={"28%"} />
+              <Product />
+              <Product />
+
+              {/* <Product width={"28%"} /> */}
+            </div>
+            <div className="productRow">
+              <Product />
+              <Product />
+              <Product />
+              <Product />
+              {/* <Product width={"28%"} /> */}
             </div>
           </section>
         </>
