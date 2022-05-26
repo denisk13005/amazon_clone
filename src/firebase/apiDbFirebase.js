@@ -23,6 +23,7 @@ export const getUsers = async () => {
 export const createUserDb = async (user) => {
   await addDoc(usersCollectionRef, user)
 }
+
 /**
  * Create an user with mail and password in firebase authentication
  * @param {string} email email for create user
@@ -38,13 +39,6 @@ export const createUserAuth = (email, password) => {
       console.log(error.code, error.message)
     })
 }
-/**
- *
- * @param {*} email
- * @param {*} pwd
- * @returns
- */
-// const signIn = (email, pwd) => signInWithEmailAndPassword(auth, email, pwd)
 
 /**
  *Check the user parmater of connection and return

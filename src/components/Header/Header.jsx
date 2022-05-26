@@ -74,7 +74,10 @@ const Header = () => {
           <br />
           <strong>et Commandes</strong>
         </div>
-        <div className="rightOptions__option rightOptions__option--basket">
+        <div
+          className="rightOptions__option rightOptions__option--basket"
+          onClick={() => navigate("/basket")}
+        >
           <img src={basket} alt="basket icone" />
           <strong>Panier</strong>
 
