@@ -29,7 +29,7 @@ const Product = ({ description, price, smallPrice, stars, img, id }) => {
         <div className="imgContainer">
           <img src={img} alt="" className="product__image" />
         </div>
-
+        {}
         <button onClick={addBasket}>Ajouter au panier</button>
         <button onClick={removeProd}>Supprimer du panier</button>
       </div>
