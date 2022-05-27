@@ -22,9 +22,9 @@ const Home = () => {
             <div className="productRow">
               <Product
                 id="1"
-                description={"test"}
+                description={"mmmmmmh c'est super "}
                 price={12}
-                smallPrice={5}
+                smallPrice={2}
                 stars={3}
                 img={
                   "https://images-eu.ssl-images-amazon.com/images/G/08/digital/video/gateway/placement/launch/RolandGarros/RG_2022_V2HUD_Reactive_XSite_379x304_PV_fr-FR._SY304_CB636920623_.jpg"
@@ -34,7 +34,7 @@ const Home = () => {
                 id="2"
                 description={"test"}
                 price={12}
-                smallPrice={5}
+                smallPrice={1}
                 stars={3}
                 img={
                   "https://m.media-amazon.com/images/I/81vkislowDL._AC_SX352_SY330_.jpg"
@@ -44,7 +44,7 @@ const Home = () => {
                 id="3"
                 description={"test"}
                 price={12}
-                smallPrice={5}
+                smallPrice={8}
                 stars={3}
                 img={
                   "https://m.media-amazon.com/images/I/51DHYdC2uoL._AC_UL320_.jpg"

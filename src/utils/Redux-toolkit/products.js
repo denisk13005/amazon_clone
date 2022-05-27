@@ -11,21 +11,24 @@ const productsSlice = createSlice({
   },
   reducers: {
     addProduct: (state, action) => {
-      console.log(action.payload)
       state.products = [...state.products, action.payload]
       //on incrémente le nb d'items dans le panier
       state.basketItems++
       //on met à jour le total
-      state.totalPrice = state.totalPrice + action.payload.price
+      const price = `${action.payload.price}.${action.payload.smallPrice}`
+      state.totalPrice = state.totalPrice + parseFloat(price)
     },
     removeProduct: (state, action) => {
+      console.log(action.payload)
       //on retourne un tableau qui comprend tous les autres éléments sauf celui avec l'id cliqué
       state.products = state.products.filter(
-        (product) => product.id !== action.payload
+        (product) => product.id !== action.payload.id
       )
       //on dévrémente le nb d'items dans le panier
       state.basketItems--
-      console.log("remove", state.totalPrice - action.payload.price)
+      const price = `${action.payload.price}.${action.payload.smallPrice}`
+      console.log(price)
+      state.totalPrice = state.totalPrice - parseFloat(price)
     },
   },
 })

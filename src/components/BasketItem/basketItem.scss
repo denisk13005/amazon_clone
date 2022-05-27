@@ -1,11 +1,14 @@
-.product {
+.basket {
   background-color: rgb(255, 255, 255);
   display: flex;
   width: 100%;
-  flex-direction: column;
+  flex-direction: row-reverse;
   border: 1px solid black;
   .headerProduct {
     margin-left: 20px;
+    border: 1px solid red;
+    width: 100%;
+    padding-top: 15px;
   }
   &__description {
     font-weight: 600;
@@ -34,12 +37,13 @@
       height: 100%;
       display: flex;
       align-items: flex-end;
-      justify-content: center;
+      justify-content: left;
       overflow: hidden;
+      img {
+        object-fit: contain;
+      }
     }
-    img {
-      object-fit: contain;
-    }
+
     button {
       margin-top: 20px;
       width: 300px;
@@ -47,6 +51,14 @@
       background: linear-gradient(#f7e6b0, #e8c353);
       border: 1px solid #9d7b27;
       border-radius: 3px;
+      margin-bottom: 25px;
     }
   }
+}
+.subtotal {
+  width: 100%;
+  margin-top: 20px;
+  text-align: right;
+  font-weight: bold;
+  font-size: 24px;
 }
