@@ -30,6 +30,7 @@ const BastketItem = ({ description, price, smallPrice, stars, img, id }) => {
           <p className="product__price">
             €<strong>{price}</strong>.<small>{smallPrice}</small>
           </p>
+          <p className="stock">En stock</p>
           <div className="product__stars">
             {Array(stars)
               .fill()
@@ -37,14 +38,19 @@ const BastketItem = ({ description, price, smallPrice, stars, img, id }) => {
                 <span key={i}>⭐</span>
               ))}
           </div>
+          <select placeholder="Qté">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+          <button onClick={removeProd}>Supprimer du panier</button>
         </div>
 
         <div className="imgAndButton">
           <div className="imgContainer">
             <img src={img} alt="" className="product__image" />
           </div>
-          {/* {}
-          <button onClick={removeProd}>Supprimer du panier</button> */}
         </div>
       </div>
     </>
