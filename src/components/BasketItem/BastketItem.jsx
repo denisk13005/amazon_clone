@@ -43,8 +43,8 @@ const BastketItem = ({ description, price, smallPrice, stars, img, id }) => {
           <div className="imgContainer">
             <img src={img} alt="" className="product__image" />
           </div>
-          {}
-          <button onClick={removeProd}>Supprimer du panier</button>
+          {/* {}
+          <button onClick={removeProd}>Supprimer du panier</button> */}
         </div>
       </div>
     </>
