@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { useSelector } from "react-redux"
 import "./basket.scss"
 
@@ -13,43 +13,61 @@ const Basket = () => {
   const totalPrice = useSelector((state) => state.products.totalPrice)
   console.log(totalPrice.toString().split(".")) //voir pour l'affichage des décimales en petits
 
-  const [purchase, setPurchase] = useState("anim")
-  console.log(products)
-
   return (
-    <main className="basketMain">
-      <div className="basket__left">
-        <h2 className="basket__title">Votre panier</h2>
-        {products &&
-          products.map((product, index) => (
-            <BastketItem
-              description={product.description}
-              price={product.price}
-              img={product.img}
-              smallPrice={product.smallPrice}
-              stars={product.stars}
-              id={product.id}
-              qte={product.qte}
-              key={index}
-            />
-          ))}
-        {basketItems > 0 ? (
-          <div className="subtotal">
-            Sous-total ({basketItems} {basketItems > 1 ? "articles" : "article"}
-            ):
-            {"€" + totalPrice.toFixed(2)}
-          </div>
-        ) : (
-          <div className="continuePurchase">
-            <h2>Votre panier est vide </h2>
-            <p onClick={() => navigate("/home")} className={purchase}>
-              Continuer mes achat
-            </p>
-          </div>
-        )}
+    <>
+      <div className="bannerContainer">
+        <img
+          src="https://images-na.ssl-images-amazon.com/images/G/08/GILFR/fr-gil_maple_vc_dt_12-2021_770x80._CB650895513_.jpg"
+          alt=""
+        />
       </div>
-      <div className="basket__right">Total</div>
-    </main>
+      <main className="basketMain">
+        <div className="basket__left">
+          <h2 className="basket__title">Votre panier</h2>
+          {products &&
+            products.map((product, index) => (
+              <BastketItem
+                description={product.description}
+                price={product.price}
+                img={product.img}
+                smallPrice={product.smallPrice}
+                stars={product.stars}
+                id={product.id}
+                qte={product.qte}
+                key={index}
+              />
+            ))}
+          {basketItems > 0 ? (
+            <div className="subtotal">
+              Sous-total ({basketItems}{" "}
+              {basketItems > 1 ? "articles" : "article"}
+              ):
+              <span> {"€" + totalPrice.toFixed(2)}</span>
+            </div>
+          ) : (
+            <div className="continuePurchase">
+              <h2>Votre panier est vide </h2>
+              <p onClick={() => navigate("/home")} className={"anim"}>
+                Continuer mes achat
+              </p>
+            </div>
+          )}
+        </div>
+        {!basketItems == 0 ? (
+          <div className="basket__right">
+            <>
+              <div className="subtotal--right">
+                Sous-total ({basketItems}
+                {basketItems > 1 ? "articles" : "article"}
+                ):
+                <span> {"€" + totalPrice.toFixed(2)}</span>
+                <button className="command">Passer la commande</button>
+              </div>
+            </>
+          </div>
+        ) : null}
+      </main>
+    </>
   )
 }
 

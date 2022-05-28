@@ -13,7 +13,7 @@ const Home = () => {
           <section className="slideContainer">
             <img
               className="imgSlide"
-              src="https://m.media-amazon.com/images/I/81yicuL6kZL._SX3000_.jpg"
+              src="https://m.media-amazon.com/images/I/715b1eVAccL._SX3000_.jpg"
               alt=""
             />
           </section>

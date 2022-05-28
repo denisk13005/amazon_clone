@@ -1,3 +1,8 @@
+.bannerContainer {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
 .basketMain {
   display: flex;
   justify-content: space-evenly;
@@ -9,8 +14,14 @@
     }
     &__right {
       width: 15%;
-      height: 15vh;
+      height: 13vh;
       background-color: rgb(255, 255, 255);
+      .panierVide {
+        margin-left: 10px;
+        margin-top: 10px;
+        font-size: 18px;
+        font-weight: 600;
+      }
     }
     &__title {
       font-size: 30px;
@@ -37,10 +48,40 @@
       animation: fadeIn 1s ease-in-out infinite;
     }
   }
+  // .subtotal {
+  //   width: 100%;
+  //   margin-top: 20px;
+  // }
+
   .subtotal {
     width: 96%;
     margin: auto;
     margin-top: 20px;
+    font-size: 24px;
+    text-align: right;
+
+    &--right {
+      font-size: 18px;
+      font-weight: 500;
+      margin-left: 10px;
+      margin-top: 20px;
+      span {
+        font-weight: bold;
+      }
+      .command {
+        display: block;
+        margin: auto;
+        margin-top: 20px;
+        height: 30px;
+        width: 70%;
+        background: linear-gradient(#f7e6b0, #e8c353);
+        border: 1px solid #9d7b27;
+        border-radius: 3px;
+      }
+    }
+    span {
+      font-weight: bold;
+    }
   }
 }
 @keyframes fadeIn {

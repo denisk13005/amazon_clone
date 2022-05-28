@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import "./basketItem.scss" // is the same component of product just the button change
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { removeProduct } from "../../utils/Redux-toolkit/products"
 
 const BastketItem = ({
@@ -13,9 +13,6 @@ const BastketItem = ({
   qte,
 }) => {
   const product = { description, price, smallPrice, stars, img, id, qte }
-
-  // REDUX STATE
-  const basketItems = useSelector((state) => state.products.basketItems)
 
   //useDispatch
   const dispatch = useDispatch()
@@ -40,12 +37,7 @@ const BastketItem = ({
           </p>
           <p className="stock">En stock</p>
           <div>{qte}</div>
-          <select placeholder="Qté">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
+
           <button onClick={removeProd}>Supprimer du panier</button>
         </div>
 
