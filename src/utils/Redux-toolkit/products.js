@@ -10,7 +10,27 @@ const productsSlice = createSlice({
   },
   reducers: {
     addProduct: (state, action) => {
-      state.products = [...state.products, action.payload]
+      const productPresent = state.products.find(
+        (el) => el.id === action.payload.id
+      )
+      if (productPresent) {
+        state.products.forEach((product) => {
+          if (product.id === action.payload.id) {
+            product.qte++
+            console.log(product.qte)
+          }
+        })
+
+        const filteredProducts = state.products.filter(
+          (el) => el.id !== action.payload.id
+        )
+        state.products = [...filteredProducts, productPresent]
+      } else {
+        let product = action.payload
+        product.qte = 1
+        state.products = [...state.products, product]
+      }
+
       //on incrémente le nb d'items dans le panier
       state.basketItems++
       //on met à jour le total

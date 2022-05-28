@@ -3,8 +3,16 @@ import "./basketItem.scss" // is the same component of product just the button c
 import { useDispatch, useSelector } from "react-redux"
 import { removeProduct } from "../../utils/Redux-toolkit/products"
 
-const BastketItem = ({ description, price, smallPrice, stars, img, id }) => {
-  const product = { description, price, smallPrice, stars, img, id }
+const BastketItem = ({
+  description,
+  price,
+  smallPrice,
+  stars,
+  img,
+  id,
+  qte,
+}) => {
+  const product = { description, price, smallPrice, stars, img, id, qte }
 
   // REDUX STATE
   const basketItems = useSelector((state) => state.products.basketItems)
