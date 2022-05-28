@@ -11,8 +11,10 @@ const Basket = () => {
   const products = useSelector((state) => state.products.products)
   const basketItems = useSelector((state) => state.products.basketItems)
   const totalPrice = useSelector((state) => state.products.totalPrice)
+  console.log(totalPrice.toString().split(".")) //voir pour l'affichage des décimales en petits
 
   const [purchase, setPurchase] = useState("anim")
+  console.log(products)
 
   return (
     <main className="basketMain">
@@ -27,6 +29,7 @@ const Basket = () => {
               smallPrice={product.smallPrice}
               stars={product.stars}
               id={product.id}
+              qte={product.qte}
               key={index}
             />
           ))}
@@ -34,8 +37,7 @@ const Basket = () => {
           <div className="subtotal">
             Sous-total ({basketItems} {basketItems > 1 ? "articles" : "article"}
             ):
-            {totalPrice.toFixed(2)}
-            {}
+            {"€" + totalPrice.toFixed(2)}
           </div>
         ) : (
           <div className="continuePurchase">

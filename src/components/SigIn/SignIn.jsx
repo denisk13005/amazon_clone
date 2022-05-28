@@ -73,7 +73,6 @@ const SignIn = (props) => {
         </label>
         <input
           type="text"
-          z
           name="userMail"
           id="userMail"
           value={email}

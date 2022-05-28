@@ -6,7 +6,6 @@ const productsSlice = createSlice({
     products: [],
     basketItems: 0,
     loading: false,
-    error: null,
     totalPrice: 0,
   },
   reducers: {
@@ -20,11 +19,15 @@ const productsSlice = createSlice({
     },
     removeProduct: (state, action) => {
       console.log(action.payload)
-      //on retourne un tableau qui comprend tous les autres éléments sauf celui avec l'id cliqué
-      state.products = state.products.filter(
-        (product) => product.id !== action.payload.id
+      // on va checker chercher l'index de l'item dans le tableau pour le supprimer (utile si plusieurs items identiques)
+      const index = state.products.findIndex(
+        (product) => product.id === action.payload.id
       )
-      //on dévrémente le nb d'items dans le panier
+      let newProducts = [...state.products]
+      newProducts.splice(index, 1)
+      state.products = [...newProducts]
+      console.log(index)
+      //on décrémente le nb d'items dans le panier
       state.basketItems--
       const price = `${action.payload.price}.${action.payload.smallPrice}`
       console.log(price)

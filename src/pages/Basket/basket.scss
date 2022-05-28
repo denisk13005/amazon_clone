@@ -37,18 +37,23 @@
       animation: fadeIn 1s ease-in-out infinite;
     }
   }
+  .subtotal {
+    width: 96%;
+    margin: auto;
+    margin-top: 20px;
+  }
 }
 @keyframes fadeIn {
   0% {
     scale: 0.97;
-    color: #e8c353;
+    color: #9d7b27;
   }
   50% {
     scale: 1;
-    color: #9d7b27;
+    color: #e8c353;
   }
   100% {
     scale: 0.97;
-    color: #e8c353;
+    color: #9d7b27;
   }
 }

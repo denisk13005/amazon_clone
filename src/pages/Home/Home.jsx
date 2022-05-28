@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import "./home.scss"
-import { useSelector } from "react-redux"
 import PleaseLogin from "../../components/PleaseLoggin/PleaseLogin"
 import Product from "../../components/Product/Product"
 
@@ -21,7 +20,7 @@ const Home = () => {
           <section className="productsContainer">
             <div className="productRow">
               <Product
-                id="1"
+                id={Math.random()}
                 description={"mmmmmmh c'est super "}
                 price={12}
                 smallPrice={2}
@@ -31,7 +30,7 @@ const Home = () => {
                 }
               />
               <Product
-                id="2"
+                id={Math.random()}
                 description={"test"}
                 price={12}
                 smallPrice={1}
@@ -41,7 +40,7 @@ const Home = () => {
                 }
               />
               <Product
-                id="3"
+                id={Math.random()}
                 description={"test"}
                 price={12}
                 smallPrice={8}
@@ -53,7 +52,7 @@ const Home = () => {
             </div>
             <div className="productRow">
               <Product
-                id="4"
+                id={Math.random()}
                 description={"test"}
                 price={12}
                 smallPrice={5}
@@ -64,7 +63,7 @@ const Home = () => {
               />
 
               <Product
-                id="5"
+                id={Math.random()}
                 description={"test"}
                 price={12}
                 smallPrice={5}
@@ -76,7 +75,7 @@ const Home = () => {
             </div>
             <div className="productRow">
               <Product
-                id="6"
+                id={Math.random()}
                 description={"test"}
                 price={12}
                 smallPrice={5}

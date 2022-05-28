@@ -3,12 +3,21 @@ import { useDispatch } from "react-redux"
 import { addProduct, removeProduct } from "../../utils/Redux-toolkit/products"
 import "./product.scss"
 
-const Product = ({ description, price, smallPrice, stars, img, id }) => {
-  const product = { description, price, smallPrice, stars, img, id }
+const Product = ({
+  description,
+  price,
+  smallPrice,
+  stars,
+  img,
+  id,
+  qte = 0,
+}) => {
+  const product = { description, price, smallPrice, stars, img, id, qte }
   const dispatch = useDispatch()
   const addBasket = () => {
     dispatch(addProduct(product))
   }
+  console.log(product)
 
   return (
     <div className="product">

@@ -31,13 +31,7 @@ const BastketItem = ({ description, price, smallPrice, stars, img, id }) => {
             €<strong>{price}</strong>.<small>{smallPrice}</small>
           </p>
           <p className="stock">En stock</p>
-          <div className="product__stars">
-            {Array(stars)
-              .fill()
-              .map((_, i) => (
-                <span key={i}>⭐</span>
-              ))}
-          </div>
+
           <select placeholder="Qté">
             <option value="0">0</option>
             <option value="1">1</option>
