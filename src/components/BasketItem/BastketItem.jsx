@@ -39,7 +39,7 @@ const BastketItem = ({
             €<strong>{price}</strong>.<small>{smallPrice}</small>
           </p>
           <p className="stock">En stock</p>
-
+          <div>{qte}</div>
           <select placeholder="Qté">
             <option value="0">0</option>
             <option value="1">1</option>

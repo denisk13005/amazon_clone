@@ -20,7 +20,7 @@ const Home = () => {
           <section className="productsContainer">
             <div className="productRow">
               <Product
-                id={Math.random()}
+                id={1}
                 description={"mmmmmmh c'est super "}
                 price={12}
                 smallPrice={2}
@@ -30,7 +30,7 @@ const Home = () => {
                 }
               />
               <Product
-                id={Math.random()}
+                id={2}
                 description={"test"}
                 price={12}
                 smallPrice={1}
@@ -40,7 +40,7 @@ const Home = () => {
                 }
               />
               <Product
-                id={Math.random()}
+                id={3}
                 description={"test"}
                 price={12}
                 smallPrice={8}
@@ -52,7 +52,7 @@ const Home = () => {
             </div>
             <div className="productRow">
               <Product
-                id={Math.random()}
+                id={4}
                 description={"test"}
                 price={12}
                 smallPrice={5}
@@ -63,7 +63,7 @@ const Home = () => {
               />
 
               <Product
-                id={Math.random()}
+                id={5}
                 description={"test"}
                 price={12}
                 smallPrice={5}
@@ -75,7 +75,7 @@ const Home = () => {
             </div>
             <div className="productRow">
               <Product
-                id={Math.random()}
+                id={6}
                 description={"test"}
                 price={12}
                 smallPrice={5}
