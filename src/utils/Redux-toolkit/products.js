@@ -54,8 +54,10 @@ const productsSlice = createSlice({
       if (productPresent) {
         state.products.forEach((product) => {
           if (product.id === action.payload.id) {
+            //si la quantité est supérieur à 1, on la décrémente
             product.qte--
             if (product.qte === 0) {
+              //si la quantité est égale à 0, on supprime le produit
               state.products = state.products.filter(
                 (el) => el.id !== action.payload.id
               )
@@ -63,7 +65,6 @@ const productsSlice = createSlice({
           }
         })
       }
-
       //on décrémente le nb d'items dans le panier
       state.basketItems--
       const price = `${action.payload.price}.${action.payload.smallPrice}`
