@@ -12,10 +12,6 @@ const SignUp = (props) => {
   const [confirmPassword, setConfirmPassword] = useState("password")
   const [errorMessage, setErrorMessage] = useState("  ")
 
-  // const resetField= () => {
-  //   setName
-  // }
-
   const signUp = (e) => {
     e.preventDefault()
     if (password === confirmPassword) {

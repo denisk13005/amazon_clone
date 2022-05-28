@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { NavLink } from "react-router-dom"
-import { getUsers, signInAuth } from "../../firebase/apiDbFirebase"
+import { NavLink, useNavigate } from "react-router-dom"
+import { signInAuth } from "../../firebase/apiDbFirebase"
 import { fetchDbUser, logIn } from "../../utils/Redux-toolkit/user"
 import "./signIn.scss"
 
 const SignIn = (props) => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   //local state
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState(" ")
@@ -25,13 +26,16 @@ const SignIn = (props) => {
   }
 
   useEffect(() => {
+    //si on revient de signUp on prérempli les champs avec l'utilisateur créée
     if (localStorage.userPrefilledField) {
       const backFromSignUp =
         localStorage.userPrefilledField &&
         JSON.parse(localStorage.getItem("userPrefilledField"))
       setEmail(backFromSignUp.email)
       setPassword(backFromSignUp.password)
-    } else if (localStorage.userRememberMe) {
+    }
+    //si on est sur login et que remember me a été coché on prérempli les champs
+    else if (localStorage.userRememberMe) {
       const rememberMeValue =
         localStorage.userRememberMe &&
         JSON.parse(localStorage.getItem("userRememberMe"))
@@ -49,39 +53,17 @@ const SignIn = (props) => {
     console.log(email)
     const auth = await signInAuth(email, password)
     //remember me si
-    if (rememberMe && auth.email === email) {
-      localStorage.setItem("userRememberMe", JSON.stringify(user))
-    } else if (!rememberMe && auth.email === email) {
-      localStorage.removeItem("userRememberMe")
+    if (auth.email === email) {
+      rememberMe && localStorage.setItem("userRememberMe", JSON.stringify(user))
+      dispatch(fetchDbUser(email))
+      dispatch(logIn())
+      localStorage.removeItem("userPrefilledField")
+      navigate("/home")
+    } else {
+      setErrorMessage(auth.split("/")[1])
     }
-    console.log(auth.email)
-    auth && dispatch(fetchDbUser(email))
-    auth && dispatch(logIn())
-    localStorage.removeItem("userPrefilledField")
   }
 
-  /**
-   * Ckeck the username and password in the firebase signInAuth api,
-   * stock the response token in local storage and dispatch the redux logIn action  *
-   * @param {string} userName
-   * @param {string} password
-   * @return accessToken connection if request ok or error if not
-   */
-  // const getAuth = async (userName, password) => {
-  //   const auth = await signInAuth(userName, password)
-  //   if (auth.accessToken) {
-  //     localStorage.setItem("adminAccessToken", auth.accessToken)
-  //     dispatch(logIn())
-  //     setErrorMessage("")
-  //   } else {
-  //     setErrorMessage(auth.split("/")[1])
-  //   }
-  // }
-
-  //unmount when loggedIn
-  // useEffect(() => {
-  //   return () => null
-  // }, [adminLoggedIn])
   return (
     <div className="signInContainer">
       <form className="signInForm" onSubmit={loggIn}>
