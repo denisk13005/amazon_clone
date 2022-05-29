@@ -61,7 +61,12 @@ const Basket = () => {
                 {basketItems > 1 ? "articles" : "article"}
                 ):
                 <span> {"€" + totalPrice.toFixed(2)}</span>
-                <button className="command">Passer la commande</button>
+                <button
+                  className="command"
+                  onClick={() => navigate("/payment")}
+                >
+                  Passer la commande
+                </button>
               </div>
             </>
           </div>
