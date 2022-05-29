@@ -36,7 +36,7 @@ const BastketItem = ({
             €<strong>{price}</strong>.<small>{smallPrice}</small>
           </p>
           <p className="stock">En stock</p>
-          <div>{qte}</div>
+          <div>Qté : {qte}</div>
 
           <button onClick={removeProd}>Supprimer du panier</button>
         </div>

@@ -9,13 +9,14 @@
   height: 100vh;
   .basket {
     &__left {
-      width: 80%;
+      width: 77%;
       background-color: white;
     }
     &__right {
-      width: 15%;
-      height: 13vh;
+      width: 20%;
+      height: 15vh;
       background-color: rgb(255, 255, 255);
+      position: relative;
       .panierVide {
         margin-left: 10px;
         margin-top: 10px;
@@ -48,10 +49,6 @@
       animation: fadeIn 1s ease-in-out infinite;
     }
   }
-  // .subtotal {
-  //   width: 100%;
-  //   margin-top: 20px;
-  // }
 
   .subtotal {
     width: 96%;
@@ -63,20 +60,23 @@
     &--right {
       font-size: 18px;
       font-weight: 500;
-      margin-left: 10px;
-      margin-top: 20px;
+      margin-left: 2%;
+      margin-top: 5%;
       span {
         font-weight: bold;
       }
       .command {
         display: block;
-        margin: auto;
-        margin-top: 20px;
-        height: 30px;
         width: 70%;
+        height: 20%;
         background: linear-gradient(#f7e6b0, #e8c353);
         border: 1px solid #9d7b27;
         border-radius: 3px;
+        position: absolute;
+        bottom: 20%;
+        left: 50%;
+        transform: translate(-50%);
+        cursor: pointer;
       }
     }
     span {
