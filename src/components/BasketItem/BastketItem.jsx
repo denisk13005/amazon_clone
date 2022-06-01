@@ -2,7 +2,17 @@ import React, { useEffect, useState } from "react"
 import "./basketItem.scss" // is the same component of product just the button change
 import { useDispatch } from "react-redux"
 import { removeProduct } from "../../utils/Redux-toolkit/products"
-
+/**
+ * item of the basket with the product and the quantity
+ * @param {string} description description of the product
+ * @param {number} price price of the product
+ * @param {number} smallPrice cts price of the product in small format
+ * @param {number} stars number of stars of the product
+ * @param {string} img url of the product image
+ * @param {number} id id of the product
+ *  @param {number} qte quantity of the same product
+ * @returns {JSX.Element} JSX element of the product in basket
+ */
 const BastketItem = ({
   description,
   price,

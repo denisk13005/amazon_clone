@@ -1,10 +1,11 @@
 import React, { useState } from "react"
+import { useSelector } from "react-redux"
 import "./home.scss"
 import PleaseLogin from "../../components/PleaseLoggin/PleaseLogin"
 import Product from "../../components/Product/Product"
 
 const Home = () => {
-  // const userLoggegIn = useSelector((state) => state.user.userLoggedIn)
+  // const userLoggedIn = useSelector((state) => state.user.userLoggedIn)
   const [userLoggedIn, setUserLoggedIn] = useState(true)
   return (
     <main className="homeMainContainer">

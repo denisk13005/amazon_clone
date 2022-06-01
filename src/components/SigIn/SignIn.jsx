@@ -54,6 +54,7 @@ const SignIn = (props) => {
     const auth = await signInAuth(email, password)
     //remember me si
     if (auth.email === email) {
+      //on stock l'utilisateur dans le localStorage si remember me coché
       rememberMe && localStorage.setItem("userRememberMe", JSON.stringify(user))
       dispatch(fetchDbUser(email))
       dispatch(logIn())
