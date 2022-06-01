@@ -9,10 +9,9 @@ import Payment from "../../pages/Payment/Payment"
 const routes = () => {
   return (
     <BrowserRouter>
-      <Header />
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/connection" element={<Connection />} />
+        <Route path="/" element={<Connection />} />
         <Route path="/basket" element={<Basket />} />
         <Route path="/payment" om element={<Payment />} />
       </Routes>

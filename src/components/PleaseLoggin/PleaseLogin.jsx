@@ -6,7 +6,7 @@ const PleaseLogin = () => {
   return (
     <div className="pleaseLog">
       <p>You re not logged</p>
-      <NavLink to="/connection">Please Connect</NavLink>
+      <NavLink to="/">Please Connect</NavLink>
     </div>
   )
 }

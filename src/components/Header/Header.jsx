@@ -18,7 +18,7 @@ const Header = () => {
   const [compteModalClassName, setCompteModalClassName] = useState("none")
 
   const loggIn = () => {
-    navigate("/connection")
+    navigate("/")
   }
   useEffect(() => {
     userLogged && setUser(userLogged.name)

@@ -15,7 +15,7 @@ const CompteModal = ({ className, closeModal }) => {
   const disconnect = () => {
     console.log("disconnect")
     dispatch(logOut())
-    navigate("/connection")
+    navigate("/")
   }
   return (
     <div className={className} onMouseLeave={closeModal}>

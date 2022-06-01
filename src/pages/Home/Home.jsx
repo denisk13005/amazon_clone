@@ -3,14 +3,17 @@ import { useSelector } from "react-redux"
 import "./home.scss"
 import PleaseLogin from "../../components/PleaseLoggin/PleaseLogin"
 import Product from "../../components/Product/Product"
+import Header from "../../components/Header/Header"
 
 const Home = () => {
-  // const userLoggedIn = useSelector((state) => state.user.userLoggedIn)
-  const [userLoggedIn, setUserLoggedIn] = useState(true)
+  const userLoggedIn = useSelector((state) => state.user.userLoggedIn)
+  // const [userLoggedIn, setUserLoggedIn] = useState(true)
   return (
     <main className="homeMainContainer">
       {userLoggedIn ? (
         <>
+          <Header />
+
           <section className="slideContainer">
             <img
               className="imgSlide"
