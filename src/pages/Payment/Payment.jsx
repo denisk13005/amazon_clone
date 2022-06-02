@@ -3,12 +3,16 @@ import "./payment.scss"
 import logo from "../../assets/img/blackLogo.png"
 import { useSelector } from "react-redux"
 import BastketItem from "../../components/BasketItem/BastketItem"
+import { useNavigate } from "react-router-dom"
 
 const Payment = () => {
+  const navigate = useNavigate()
   const items = useSelector((state) => state.products.basketItems)
   const products = useSelector((state) => state.products.products)
   const totalPrice = useSelector((state) => state.products.totalPrice)
-
+  if (items === 0) {
+    navigate("/basket")
+  }
   return (
     <section
       className="paymentContainer
@@ -57,20 +61,22 @@ const Payment = () => {
             </div>
           </div>
 
-          <div className="itemsAndDelivary">
+          <div className="itemsAndDelivery">
             3 <span>Vos articles</span>
-            {products.map((product, index) => (
-              <BastketItem
-                description={product.description}
-                price={product.price}
-                img={product.img}
-                smallPrice={product.smallPrice}
-                stars={product.stars}
-                id={product.id}
-                qte={product.qte}
-                key={index}
-              />
-            ))}
+            <div className="itemsContainer">
+              {products.map((product, index) => (
+                <BastketItem
+                  description={product.description}
+                  price={product.price}
+                  img={product.img}
+                  smallPrice={product.smallPrice}
+                  stars={product.stars}
+                  id={product.id}
+                  qte={product.qte}
+                  key={index}
+                />
+              ))}
+            </div>
           </div>
         </div>
         <div className="mainContent__right">

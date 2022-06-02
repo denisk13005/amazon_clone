@@ -97,6 +97,18 @@
           }
         }
       }
+      .itemsAndDelivery {
+        font-weight: bold;
+
+        color: #cf7530;
+        .itemsContainer {
+          border: 1px solid rgb(199, 133, 133);
+          width: 93%;
+          margin: auto;
+          color: black;
+          font-weight: normal;
+        }
+      }
     }
     &__right {
       flex-grow: 0.2;
