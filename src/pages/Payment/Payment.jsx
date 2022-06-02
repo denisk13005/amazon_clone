@@ -2,9 +2,13 @@ import React from "react"
 import "./payment.scss"
 import logo from "../../assets/img/blackLogo.png"
 import { useSelector } from "react-redux"
+import BastketItem from "../../components/BasketItem/BastketItem"
 
 const Payment = () => {
   const items = useSelector((state) => state.products.basketItems)
+  const products = useSelector((state) => state.products.products)
+  const totalPrice = useSelector((state) => state.products.totalPrice)
+
   return (
     <section
       className="paymentContainer
@@ -53,7 +57,21 @@ const Payment = () => {
             </div>
           </div>
 
-          <div className="itemsAndDelivary">3</div>
+          <div className="itemsAndDelivary">
+            3 <span>Vos articles</span>
+            {products.map((product, index) => (
+              <BastketItem
+                description={product.description}
+                price={product.price}
+                img={product.img}
+                smallPrice={product.smallPrice}
+                stars={product.stars}
+                id={product.id}
+                qte={product.qte}
+                key={index}
+              />
+            ))}
+          </div>
         </div>
         <div className="mainContent__right">
           <div className="btn"> Utiliser ce mode de paiement</div>
