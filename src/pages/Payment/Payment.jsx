@@ -20,7 +20,12 @@ const Payment = () => {
     >
       <header className="headerPayment">
         <div className="headerContent">
-          <img className="paymentLogo" src={logo} alt="amazon logo" />
+          <img
+            className="paymentLogo"
+            src={logo}
+            alt="amazon logo"
+            onClick={() => navigate("/home")}
+          />
           <h1>
             Passer la commande (
             <span style={{ color: "#007185" }}>
