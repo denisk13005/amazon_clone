@@ -33,7 +33,6 @@
     justify-content: space-between;
     margin: auto;
     &__left {
-      border: 1px solid red;
       flex-grow: 0.7;
       position: relative;
       .deliveryAdress {
@@ -103,7 +102,6 @@
 
         color: #cf7530;
         .itemsContainer {
-          border: 1px solid rgb(199, 133, 133);
           width: 93%;
           margin: auto;
           color: black;
