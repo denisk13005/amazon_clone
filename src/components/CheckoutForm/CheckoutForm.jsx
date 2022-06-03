@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import ReactDOM from "react-dom"
+import { useSelector } from "react-redux"
 import { loadStripe } from "@stripe/stripe-js"
 import {
   CardElement,
@@ -10,6 +10,7 @@ import {
 import axios from "axios"
 
 const CheckoutFormBuild = () => {
+  const totalPrice = useSelector((state) => state.products.totalPrice)
   const stripe = useStripe()
   const elements = useElements()
 
@@ -36,12 +37,12 @@ const CheckoutFormBuild = () => {
           "http://localhost:8080/stripe/charge",
           {
             id,
-            amount: 500,
+            amount: totalPrice * 100,
           }
         )
         console.log(response)
         if (response.data.success) {
-          console.log("paiement effectué")
+          alert("paiement effectué")
           setProcessed(false)
         }
       } catch (err) {
@@ -54,12 +55,16 @@ const CheckoutFormBuild = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} style={{ padding: "10px" }}>
       <CardElement />
-      <div>{err}</div>
-      <button type="submit" disabled={!stripe || !elements || processed}>
+      <button
+        style={{ marginLeft: "50%", marginTop: "20px" }}
+        type="submit"
+        disabled={!stripe || !elements || processed}
+      >
         Pay
       </button>
+      <div style={{ color: "red", fontWeight: "normal" }}>{err}</div>
     </form>
   )
 }

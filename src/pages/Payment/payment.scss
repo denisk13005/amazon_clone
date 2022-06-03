@@ -1,8 +1,13 @@
 .paymentContainer {
   width: 100%;
-  max-width: 1440px;
   min-width: 1000px;
   margin: auto;
+  min-height: 100vh;
+  background-color: white;
+  .container {
+    max-width: 1440px;
+    margin: auto;
+  }
   .headerPayment {
     width: 97%;
     height: 7vh;
@@ -111,7 +116,41 @@
     }
     &__right {
       flex-grow: 0.2;
-      border: 1px solid blue;
+      border: 1px solid rgb(163, 163, 163);
+      padding: 20px;
+      border-radius: 10px;
+      height: max-content;
+      .recap {
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+      .orderedRecap {
+        font-size: 12px;
+        div {
+          position: relative;
+          margin-bottom: 5px;
+          span {
+            position: absolute;
+            right: 0;
+          }
+        }
+      }
+      .totalAmount {
+        color: #cf7530;
+        font-weight: 600;
+        position: relative;
+        margin-top: 30px;
+        border-top: 1px solid #7a7575;
+        padding-top: 20px;
+        span {
+          position: absolute;
+          right: 0;
+        }
+      }
+      p {
+        font-size: 12px;
+        margin-top: 5px;
+      }
     }
   }
 }
