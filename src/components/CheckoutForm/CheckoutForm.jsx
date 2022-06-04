@@ -51,6 +51,7 @@ const CheckoutFormBuild = () => {
     } else {
       console.log(error.message)
       seterr(error.message)
+      setProcessed(false)
     }
   }
 
