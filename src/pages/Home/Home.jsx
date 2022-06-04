@@ -4,6 +4,7 @@ import "./home.scss"
 import PleaseLogin from "../../components/PleaseLoggin/PleaseLogin"
 import Product from "../../components/Product/Product"
 import Header from "../../components/Header/Header"
+import Slider from "../../components/Slider/Slider"
 
 const Home = () => {
   const userLoggedIn = useSelector((state) => state.user.userLoggedIn)
@@ -14,13 +15,7 @@ const Home = () => {
       <main className="homeMainContainer">
         {userLoggedIn ? (
           <>
-            <section className="slideContainer">
-              <img
-                className="imgSlide"
-                src="https://m.media-amazon.com/images/I/715b1eVAccL._SX3000_.jpg"
-                alt=""
-              />
-            </section>
+            <Slider />
             <section className="productsContainer">
               <div className="productRow">
                 <Product
