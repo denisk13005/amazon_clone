@@ -1,5 +1,6 @@
 import React, { useState } from "react"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { reset } from "../../utils/Redux-toolkit/products"
 import { loadStripe } from "@stripe/stripe-js"
 import {
   CardElement,
@@ -8,8 +9,10 @@ import {
   useElements,
 } from "@stripe/react-stripe-js"
 import axios from "axios"
+import "./checkoutForm.scss"
 
 const CheckoutFormBuild = () => {
+  const dispatch = useDispatch()
   const totalPrice = useSelector((state) => state.products.totalPrice)
   const stripe = useStripe()
   const elements = useElements()
@@ -30,6 +33,8 @@ const CheckoutFormBuild = () => {
     })
     if (!error) {
       console.log("paiement généré", paymentMethod)
+      seterr("")
+
       //envoi du token au backend
       try {
         const { id } = paymentMethod
@@ -44,6 +49,7 @@ const CheckoutFormBuild = () => {
         if (response.data.success) {
           alert("paiement effectué")
           setProcessed(false)
+          dispatch(reset())
         }
       } catch (err) {
         console.log(err)
@@ -56,16 +62,20 @@ const CheckoutFormBuild = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} style={{ padding: "10px" }}>
-      <CardElement />
+    <form
+      className="checkoutForm"
+      onSubmit={handleSubmit}
+      style={{ padding: "10px" }}
+    >
+      <CardElement style={{ width: "100% !important" }} />
+      <div style={{ color: "red", fontWeight: "normal" }}>{err}</div>
       <button
-        style={{ marginLeft: "50%", marginTop: "20px" }}
+        className="payBtn"
         type="submit"
         disabled={!stripe || !elements || processed}
       >
-        Pay
+        Payer {totalPrice.toFixed(2)}€
       </button>
-      <div style={{ color: "red", fontWeight: "normal" }}>{err}</div>
     </form>
   )
 }

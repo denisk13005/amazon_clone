@@ -65,7 +65,6 @@ const Payment = () => {
                     <div className="date">Date d'expiration</div>
                   </div>
                 </div>
-                <CheckoutForm />
                 <div className="cartContainer"></div>
               </div>
             </div>
@@ -105,6 +104,7 @@ const Payment = () => {
               Montant Total : <span>{totalPrice.toFixed(2)}€</span>
             </div>
             <p>Total de la commande, TVA incluse</p>
+            <CheckoutForm />
           </div>
         </main>
       </div>

@@ -71,8 +71,13 @@ const productsSlice = createSlice({
       console.log(price)
       state.totalPrice = state.totalPrice - parseFloat(price)
     },
+    reset: (state) => {
+      state.products = []
+      state.basketItems = 0
+      state.totalPrice = 0
+    },
   },
 })
 
-export const { addProduct, removeProduct } = productsSlice.actions
+export const { addProduct, removeProduct, reset } = productsSlice.actions
 export default productsSlice.reducer
