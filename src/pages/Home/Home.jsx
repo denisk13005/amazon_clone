@@ -46,11 +46,11 @@ const Home = () => {
               <Product
                 id={3}
                 description={"test"}
-                price={12}
+                price={655}
                 smallPrice={8}
                 stars={3}
                 img={
-                  "https://m.media-amazon.com/images/I/51DHYdC2uoL._AC_UL320_.jpg"
+                  "https://m.media-amazon.com/images/I/71Qd4S8SbtL._AC_SX352_SY330_.jpg"
                 }
               />
             </div>
@@ -58,22 +58,22 @@ const Home = () => {
               <Product
                 id={4}
                 description={"test"}
-                price={12}
+                price={300}
                 smallPrice={5}
                 stars={3}
                 img={
-                  "https://m.media-amazon.com/images/I/71WZ60ItMmS._AC_UL320_.jpg"
+                  "https://images-na.ssl-images-amazon.com/images/I/41LcAKXQyJL._AC_SR400,600_.jpg"
                 }
               />
 
               <Product
                 id={5}
                 description={"test"}
-                price={12}
+                price={239}
                 smallPrice={5}
                 stars={3}
                 img={
-                  "https://m.media-amazon.com/images/I/71Tw+CeSKjL._AC_UL320_.jpg"
+                  "https://images-na.ssl-images-amazon.com/images/I/41aCosV70jL._AC_SR400,600_.jpg"
                 }
               />
             </div>
@@ -81,11 +81,11 @@ const Home = () => {
               <Product
                 id={6}
                 description={"test"}
-                price={12}
+                price={29}
                 smallPrice={5}
                 stars={3}
                 img={
-                  "https://m.media-amazon.com/images/I/71HWjbeA1tL._AC_UL320_.jpg"
+                  "https://images-eu.ssl-images-amazon.com/images/I/71g8a2BcgRL._AC_UL160_SR160,160_.jpg"
                 }
               />
             </div>

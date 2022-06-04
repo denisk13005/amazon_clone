@@ -98,11 +98,11 @@ const Payment = () => {
                 livraison : <span>0€</span>
               </div>
               <div>
-                Total : <span>{totalPrice}€</span>
+                Total : <span>{totalPrice.toFixed(2)}€</span>
               </div>
             </div>
             <div className="totalAmount">
-              Montant Total : <span>{totalPrice}€</span>
+              Montant Total : <span>{totalPrice.toFixed(2)}€</span>
             </div>
             <p>Total de la commande, TVA incluse</p>
           </div>

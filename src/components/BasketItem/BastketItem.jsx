@@ -54,13 +54,11 @@ const BastketItem = ({
             <span style={{ cursor: "pointer" }} onClick={removeProd}>
               -
             </span>
-            <span className="qte">{qte}</span>{" "}
+            <span className="qte">{qte}</span>
             <span style={{ cursor: "pointer" }} onClick={addProd}>
               +
             </span>
           </div>
-
-          <button onClick={removeProd}>Supprimer du panier</button>
         </div>
 
         <div className="imgAndButton">

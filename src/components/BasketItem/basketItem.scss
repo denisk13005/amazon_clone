@@ -7,13 +7,24 @@
   border: 1px solid black;
   margin: auto;
   margin-bottom: 10px;
+  span {
+    margin-left: 5px;
+  }
+  .qte {
+    background-color: lightgray;
+    border-radius: 5px;
+    display: inline-block;
+    width: 2vw;
+    height: auto;
+    text-align: center;
+  }
   .headerProduct {
     margin-left: 20px;
     width: 100%;
     padding-top: 15px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     .stock {
       font-size: 14px;
       color: #116e1e;
