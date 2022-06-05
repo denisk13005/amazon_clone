@@ -6,7 +6,7 @@ import "./slider.scss"
 const Slider = () => {
   const [slide, setSlide] = useState()
   const [index, setIndex] = useState(0)
-  const [imgClass, setImgClass] = useState("")
+  const [imgClass, setImgClass] = useState("imgSlideLeft")
   /**
    * @description: function to change the slide
    * @param {number} index
@@ -55,7 +55,6 @@ const Slider = () => {
 
   useEffect(() => {
     setSlide(backgroundSlide)
-    setImgClass("imgSlide")
   }, [])
 
   return (
@@ -67,7 +66,11 @@ const Slider = () => {
         <img className="chevron chevron__left" src={chevron} alt="" />
       </div>
 
-      <img className={imgClass} src={slide && slide[index].link} alt="" />
+      <img
+        className={imgClass || "imgSlideLeft"}
+        src={slide && slide[index].link}
+        alt=""
+      />
       <div className="chevronContainer chevronContainer__right" onClick={next}>
         <img className="chevron chevron__right" src={chevron} alt="" />
       </div>
