@@ -1,5 +1,5 @@
 # AMAZON CLONE
  
-this is a amazon clone project 
+this is an amazon clone project 
 
 
