@@ -27,4 +27,8 @@ export const backgroundSlide = [
     name: "backgroundSlide6",
     link: "https://m.media-amazon.com/images/I/715b1eVAccL._SX3000_.jpg",
   },
+  {
+    name: "backgroundSlide7",
+    link: "https://m.media-amazon.com/images/I/61KeJtKAV1L._SX3000_.jpg",
+  },
 ]

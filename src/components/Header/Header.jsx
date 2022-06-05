@@ -15,11 +15,10 @@ const Header = () => {
   const basketItems = useSelector((state) => state.products.basketItems)
   //local state
   const [user, setUser] = useState("")
-  const [connected, setConnected] = useState(false)
   const [compteModalClassName, setCompteModalClassName] = useState("none")
 
   const loggIn = () => {
-    navigate("/connection")
+    navigate("/")
   }
   useEffect(() => {
     userLogged && setUser(userLogged.name)

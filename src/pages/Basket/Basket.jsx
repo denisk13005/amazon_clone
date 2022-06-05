@@ -4,6 +4,7 @@ import "./basket.scss"
 
 import BastketItem from "../../components/BasketItem/BastketItem"
 import { useNavigate } from "react-router-dom"
+import Header from "../../components/Header/Header"
 
 const Basket = () => {
   const navigate = useNavigate()
@@ -15,6 +16,8 @@ const Basket = () => {
 
   return (
     <>
+      <Header />
+
       <div className="bannerContainer">
         <img
           src="https://images-na.ssl-images-amazon.com/images/G/08/GILFR/fr-gil_maple_vc_dt_12-2021_770x80._CB650895513_.jpg"
@@ -61,7 +64,12 @@ const Basket = () => {
                 {basketItems > 1 ? "articles" : "article"}
                 ):
                 <span> {"€" + totalPrice.toFixed(2)}</span>
-                <button className="command">Passer la commande</button>
+                <button
+                  className="command"
+                  onClick={() => navigate("/payment")}
+                >
+                  Passer la commande
+                </button>
               </div>
             </>
           </div>
