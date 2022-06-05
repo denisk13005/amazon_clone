@@ -6,28 +6,39 @@ import "./slider.scss"
 const Slider = () => {
   const [slide, setSlide] = useState()
   const [index, setIndex] = useState(0)
-
   const [imgClass, setImgClass] = useState("")
 
   const previous = () => {
+    setImgClass("")
+
     if (index === 0) {
-      setIndex(slide.length - 1)
+      setTimeout(() => {
+        console.log("timeout")
+        setIndex(slide.length - 1)
+        setImgClass("imgSlideLeft")
+      }, 0.15)
     } else {
       setIndex(index - 1)
-      imgClass === "imgSlide2"
-        ? setImgClass("imgSlide")
-        : setImgClass("imgSlide2")
+      setTimeout(() => {
+        setImgClass("imgSlideLeft")
+      }, 0.15)
     }
   }
 
   const next = () => {
+    setImgClass("")
     if (index === slide.length - 1) {
-      setIndex(0)
+      setTimeout(() => {
+        console.log("timeout")
+
+        setIndex(0)
+        setImgClass("imgSlideRight")
+      }, 0.15)
     } else {
       setIndex(index + 1)
-      imgClass === "imgSlide2"
-        ? setImgClass("imgSlide")
-        : setImgClass("imgSlide2")
+      setTimeout(() => {
+        setImgClass("imgSlideRight")
+      }, 0.15)
     }
   }
 
@@ -37,8 +48,11 @@ const Slider = () => {
   }, [])
 
   return (
-    <section className="slideContainer" onClick={previous}>
-      <div className="chevronContainer chevronContainer__left">
+    <section className="slideContainer">
+      <div
+        className="chevronContainer chevronContainer__left"
+        onClick={previous}
+      >
         <img className="chevron chevron__left" src={chevron} alt="" />
       </div>
 
