@@ -7,7 +7,12 @@ const Slider = () => {
   const [slide, setSlide] = useState()
   const [index, setIndex] = useState(0)
   const [imgClass, setImgClass] = useState("")
-
+  /**
+   * @description: function to change the slide
+   * @param {number} index
+   * @returns {void}
+   *
+   */
   const previous = () => {
     setImgClass("")
 
@@ -24,6 +29,12 @@ const Slider = () => {
       }, 0.15)
     }
   }
+
+  /**
+   * @description: function to change the slide
+   * @param {number} index
+   * @returns {void}
+   */
 
   const next = () => {
     setImgClass("")
