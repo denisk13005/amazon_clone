@@ -38,13 +38,10 @@ const CheckoutFormBuild = () => {
       //envoi du token au backend
       try {
         const { id } = paymentMethod
-        const response = await axios.post(
-          "http://localhost:8080/stripe/charge",
-          {
-            id,
-            amount: totalPrice * 100,
-          }
-        )
+        const response = await axios.post("/stripe/charge", {
+          id,
+          amount: totalPrice * 100,
+        })
         console.log(response)
         if (response.data.success) {
           alert("paiement effectué")
